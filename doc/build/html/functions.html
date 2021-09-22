@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>functions module &#8212; acse-9-independent-research-project-fy120 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">acse-9-independent-research-project-fy120 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">functions module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-functions">
+<span id="functions-module"></span><h1>functions module<a class="headerlink" href="#module-functions" title="Permalink to this headline">¶</a></h1>
+<p>The file contains functions that will be used in the ipynb files. This file is only used to add the notes
+and generate the documentation. These functions have been added to the ipynb files</p>
+<p>&#64;author: Fan Yang</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.MSE">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">MSE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.MSE" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to calculate the mean square error of original data and
+reconstructed data using POD. This function is used to deal with burgers equation data.
+When we use POD to deal with the flow past cylinder solution, there is
+a function called MSE as well. Although the basic theory is same, the details are
+different. Because these two functions are defined in two different ipynbs, the two
+functions with the same name are allowable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>S</strong> (<em>array</em>) – The array contains total data</p></li>
+<li><p><strong>index</strong> (<em>array</em>) – It can be training index, valid index, test index or total index.
+Depends on the MSE of which kind of data you want to calculate.</p></li>
+<li><p><strong>R</strong> (<em>array</em>) – It contains the basis functions. The basis function can be calculated through
+using singular value decomposition</p></li>
+<li><p><strong>RT</strong> (<em>array</em>) – The transpose of the R</p></li>
+<li><p><strong>n</strong> (<em>integer</em><em>(</em><em>optional</em><em>)</em>) – The value of the n is fixed. This is the number of the nodes of each solution</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The result of the mean square error</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.PlotMSELoss">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">PlotMSELoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pathName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.PlotMSELoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to read the data to numpy form the specified path
+and plot the mean square error(MSE) of training data and validation data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pathName</strong> (<em>string</em>) – The path of the csv file that contains the information of epochs and
+MSE of training data and validation data</p></li>
+<li><p><strong>name</strong> (<em>string</em>) – The name of the Plot</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.SVD_MSE">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">SVD_MSE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decoded</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.SVD_MSE" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to calculate the MSE of SVD_AE in burgers equation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>S</strong> (<em>array</em>) – The array contains total data</p></li>
+<li><p><strong>decoded</strong> (<em>array</em>) – The output of the autoencoder</p></li>
+<li><p><strong>R</strong> (<em>array</em>) – It contains the basis functions. The basis function can be calculated through
+using singular value decomposition</p></li>
+<li><p><strong>n</strong> (<em>integer</em><em>(</em><em>optional</em><em>)</em>) – The value of the n is fixed. This is the number of the nodes of each solution</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The result of MSE</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.Save_pic">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">Save_pic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.Save_pic" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to save all plots of the total data to a specified folder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>string</em>) – It is the path that the pictures will be saved</p></li>
+<li><p><strong>x</strong> (<em>array</em>) – The x-axis value</p></li>
+<li><p><strong>S</strong> (<em>array</em>) – The array contains total data in y-axis</p></li>
+<li><p><strong>name</strong> (<em>string</em>) – The picture’s name</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.calculate_gamma">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">calculate_gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.calculate_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calcualte the fraction of the information</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>P</strong> (<em>integer</em>) – The number of the basis function</p></li>
+<li><p><strong>sigma</strong> (<em>array</em>) – The array obtained from the singular value decomposition</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>res</strong> – Information carried by the first P basis function</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.getIndex">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">getIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_valid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.getIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the indexes of training,valid and test dataset from the csv file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path_train</strong> (<em>string</em>) – The path of the train_index will be loaded</p></li>
+<li><p><strong>path_valid</strong> (<em>string</em>) – The path of the valid_index will be loaded</p></li>
+<li><p><strong>path_test</strong> (<em>string</em>) – The path of the test_index will be loaded</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>train_index</strong> (<em>array</em>) – Load the file to the array</p></li>
+<li><p><strong>valid_index</strong> (<em>array</em>) – Load the file to the array</p></li>
+<li><p><strong>test_index</strong> (<em>array</em>) – Load the file to the array</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.getMode">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">getMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_valid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.getMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the modes of training,valid and test data from the csv file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path_train</strong> (<em>string</em>) – The path of the mode_train will be loaded</p></li>
+<li><p><strong>path_valid</strong> (<em>string</em>) – The path of the mode_valid will be loaded</p></li>
+<li><p><strong>path_test</strong> (<em>string</em>) – The path of the mode_test will be loaded</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>mode_train</strong> (<em>array</em>) – Load the csv file to the array</p></li>
+<li><p><strong>mode_valid</strong> (<em>array</em>) – Load the csv file to the array</p></li>
+<li><p><strong>mode_test</strong> (<em>array</em>) – Load the csv file to the array</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.getNumpy">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">getNumpy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.getNumpy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load csv to a array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>string</em>) – It is the path that csv file has stored</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>array</strong> – The array store the csv file</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.getTotal_decoded">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">getTotal_decoded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">training_decoded</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_decoded</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_decoded</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nTotal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nNodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20550</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.getTotal_decoded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Becaue the training data, validation data and test data are randomly split. This
+function is used to Combine the training decoded, valid decoded and test decoded
+to total decoded. The index of the total decoded is from 0 to 1999 in order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>training_decoded</strong> (<em>tensor</em>) – The output of the autoencoder using the training data as the input</p></li>
+<li><p><strong>valid_decoded</strong> (<em>tensor</em>) – The output of the autoencoder using the valid data as the input</p></li>
+<li><p><strong>test_decoded</strong> (<em>tensor</em>) – The output of the autoencoder using the test data as the input</p></li>
+<li><p><strong>train_index</strong> (<em>array</em>) – The array generated from the index_split function</p></li>
+<li><p><strong>valid_index</strong> (<em>array</em>) – The array generated from the index_split function</p></li>
+<li><p><strong>test_index</strong> (<em>array</em>) – The array generated from the index_split function</p></li>
+<li><p><strong>nTotal</strong> (<em>integer</em><em>(</em><em>optional</em><em>)</em>) – The value of the nTotal is fixed. This is the number of the solutions</p></li>
+<li><p><strong>nNodes</strong> (<em>integer</em><em>(</em><em>optional</em><em>)</em>) – The value of the nNodes is fixed. This is the number of the nodes of each solution</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>total_decoded</strong> – The output of the autoencoder using total data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.get_sfc_curves_from_coords">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">get_sfc_curves_from_coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.get_sfc_curves_from_coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>This functions generate space-filling orderings for a coordinate input of a Discontinuous Galerkin unstructured mesh.
+This function is written by YuJin
+:param coords:
+:type coords: [2d-array] coordinates of mesh, read from meshio.read().points or vtktools.vtu().GetLocations(),  of shape(number of Nodes, 3)
+:param num:
+:type num: [int] the number of (orthogonal) space-filling curves you want.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>curve_lists</strong> (<em>[list of 1d-arrays] the list of space-filling curves, each element of shape [number of Nodes, ]</em>)</p></li>
+<li><p><strong>inv_lists</strong> (<em>[list of 1d-arrays] the list of inverse space-filling curves, each element of shape [number of Nodes, ]</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.index_split">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">index_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.index_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Random split the total_num according to the ratio train_ratio:valid_ratio : test_ratio.
+In this project, the train_ratio is 0.8, valid_ratio is 0.1 and test_ratio is 0.1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train_ratio</strong> (<em>float</em>) – Ratio of training data to total data</p></li>
+<li><p><strong>valid_ratio</strong> (<em>float</em>) – Ratio of valid data to total data</p></li>
+<li><p><strong>test_ratio</strong> (<em>float</em>) – Ratio of test data to total data</p></li>
+<li><p><strong>total_num</strong> (<em>integer</em>) – This is the number of the total solution</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>train_index</strong> (<em>array</em>) – The index of the training data</p></li>
+<li><p><strong>valid_index</strong> (<em>array</em>) – The index of the valid data</p></li>
+<li><p><strong>test_index</strong> (<em>array</em>) – The index of the test data</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.orginal">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">orginal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nNodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20550</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.orginal" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to calculate the reconstructed data from reduced variables using POD.
+This function is used to deal with flow past cylinder data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>S</strong> (<em>array</em>) – The array contains total data that combine two features as a column</p></li>
+<li><p><strong>index</strong> (<em>array</em>) – It can be training index, valid index, test index or total index.
+Depends on the MSE of which kind of data you want to calculate.</p></li>
+<li><p><strong>R</strong> (<em>array</em>) – It contains the basis functions. The basis function can be calculated through
+using singular value decomposition</p></li>
+<li><p><strong>RT</strong> (<em>array</em>) – The transpose of the R</p></li>
+<li><p><strong>nNodes</strong> (<em>integer</em><em>(</em><em>optional</em><em>)</em>) – The value of the nNodes is fixed. This is the number of the nodes of each solution</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>orginal</strong> – The reconstructed data from reduced variables using POD</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.picTovideo">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">picTovideo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">picPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">videoPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.picTovideo" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to collect all pictures in a folder to generate a video</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>picPath</strong> (<em>string</em>) – It is the path that the pictures that be saved</p></li>
+<li><p><strong>videoPath</strong> (<em>string</em>) – It is the path that the video that will be saved</p></li>
+<li><p><strong>Num</strong> (<em>integer</em>) – The number of the pictures</p></li>
+<li><p><strong>name</strong> (<em>string</em>) – The picture’s name</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.read_in_files">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">read_in_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vtu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vtu_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.read_in_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function reads in the vtu/txt files in a {data_path} as tensors, of shape [snapshots, number of Nodes, Channels]
+This function is written by YuJin</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_path</strong> (<em>[</em><em>string</em><em>] </em><em>the data_path which holds vtu/txt files</em><em>, </em><em>no other type of files are accepted!!!</em>) – </p></li>
+<li><p><strong>file_format</strong> (<em>[</em><em>string</em><em>] </em><em>'vtu'</em><em> or </em><em>'txt'</em><em>, </em><em>the format of the file.</em>) – </p></li>
+<li><p><strong>vtu_fields</strong> (<em>[</em><em>list</em><em>] </em><em>the list of vtu_fields if read in vtu files</em><em>, </em><em>the last dimension of the tensor</em><em>, </em><em>e.g.</em><em> [</em><em>'Velocity'</em><em>, </em><em>'Pressure'</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>Case 1 - file_format=’vtu’</strong> (<em>(3-tuple) [torch.FloatTensor] full_stage over times step, time along 0 axis; [torch.FloatTensor] coords of the mesh; [dictionary] cell_dict of the mesh.</em>)</p></li>
+<li><p><strong>Case 2 - file_format=’txt’</strong> (<em>[torch.FloatTensor] full_stage over times step, time along 0 axis</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.relative_error">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">relative_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.relative_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to calculate the relative square error of original data and
+reconstructed data using POD. This function is used to deal with burgers equation data.
+When we use POD to deal with the flow past cylinder solution, there is
+a function called relative_error as well. Although the basic theory is same, the details are
+different. Because these two functions are defined in two different ipynbs, the two
+functions with the same name are allowable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>S</strong> (<em>array</em>) – The array contains total data</p></li>
+<li><p><strong>index</strong> (<em>array</em>) – It can be training index, valid index, test index or total index.
+Depends on the MSE of which kind of data you want to calculate.</p></li>
+<li><p><strong>R</strong> (<em>array</em>) – It contains the basis functions. The basis function can be calculated through
+using singular value decomposition</p></li>
+<li><p><strong>RT</strong> (<em>array</em>) – The transpose of the R</p></li>
+<li><p><strong>n</strong> (<em>integer</em><em>(</em><em>optional</em><em>)</em>) – The value of the n is fixed. This is the number of the nodes of each solution</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The result of the relative square error</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.saveIndex">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">saveIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_valid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.saveIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>The indexes of training, valid and test dataset are generated randomly. The indexes
+are saved as csv file so that these indexed can be reused in loading data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path_train</strong> (<em>string</em>) – The path of the train_index will be saved</p></li>
+<li><p><strong>path_valid</strong> (<em>string</em>) – The path of the valid_index will be saved</p></li>
+<li><p><strong>path_test</strong> (<em>string</em>) – The path of the test_index will be saved</p></li>
+<li><p><strong>train_index</strong> (<em>array</em>) – The array generated from the index_split function</p></li>
+<li><p><strong>valid_index</strong> (<em>array</em>) – The array generated from the index_split function</p></li>
+<li><p><strong>test_index</strong> (<em>array</em>) – The array generated from the index_split function</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.saveMode">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">saveMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_valid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_valid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.saveMode" title="Permalink to this definition">¶</a></dt>
+<dd><p># The output of the encoder is called mode. Save the mode of training data, valid
+# data and test respectively. This function will be used in hierarchical autoencoder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path_train</strong> (<em>string</em>) – The path of the mode_train will be saved</p></li>
+<li><p><strong>path_valid</strong> (<em>string</em>) – The path of the mode_valid will be saved</p></li>
+<li><p><strong>path_test</strong> (<em>string</em>) – The path of the mode_test will be saved</p></li>
+<li><p><strong>mode_train</strong> (<em>tensor</em>) – The tensor generated from the output the the encoder using training data</p></li>
+<li><p><strong>mode_valid</strong> (<em>tensor</em>) – The tensor generated from the output the the encoder using valid data</p></li>
+<li><p><strong>mode_test</strong> (<em>tensor</em>) – The tensor generated from the output the the encoder using test data</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.saveNumpy">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">saveNumpy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.saveNumpy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save a array to csv</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>string</em>) – It is the path that the  that will be saved</p></li>
+<li><p><strong>array</strong> (<em>array</em>) – The array will be saved</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/functions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">acse-9-independent-research-project-fy120 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">functions module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Fan Yang.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
+    </div>
+  </body>
+</html>
